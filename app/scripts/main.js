@@ -16,7 +16,8 @@ var Feeling = Backbone.Model.extend({
 
   //make sure initialize is spelled correctly
   initialize: function () {
-    console.log('I have been created');
+    var feel = this.get('title');
+    console.log(feel + ' feeling has been created');
 
   }
 
@@ -25,4 +26,27 @@ var Feeling = Backbone.Model.extend({
   var Feelings = Backbone.Collection.extend({
       model:Feeling,
       url: server
+      });
+
+      var all_feelings = new Feelings();
+
+      var feeling1 = new Feeling({
+
+          title:'Agitated',
+          cause: 'Wont Work',
+          type: 'low'
+        });
+
+      var feeling2 = new Feeling({
+
+          title:'Happy',
+          cause: 'Works',
+          type: 'high'
+        });
+
+      var feeling3 = new Feeling({
+
+        title:'Inquisitive',
+        cause: 'Learning Something New',
+        type: 'high'
       });
